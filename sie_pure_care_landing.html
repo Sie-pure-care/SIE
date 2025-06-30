@@ -5,63 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sie Pure Care</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
       background-color: #fdfdfd;
       color: #333;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem;
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
     }
     header {
-      padding: 2rem;
+      padding-top: 80px;
       text-align: center;
-      border-bottom: 1px solid #eee;
     }
     header img {
       height: 60px;
     }
-    .intro {
+    section {
       padding: 4rem 2rem;
+    }
+    .intro, .about, .testimonials, .faq, .contact {
       text-align: center;
-    }
-    .intro h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .intro p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 800px;
+      margin: auto;
     }
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
-      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
     }
     .product {
       text-align: center;
       padding: 1rem;
       border: 1px solid #eee;
       border-radius: 12px;
-      transition: box-shadow 0.3s ease;
       background: white;
-    }
-    .product:hover {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
     .product img {
       width: 100%;
       max-width: 200px;
       height: auto;
       margin-bottom: 1rem;
-    }
-    .product h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    .product p {
-      font-size: 0.95rem;
-      color: #555;
     }
     footer {
       text-align: center;
@@ -70,10 +72,34 @@
       color: #888;
       border-top: 1px solid #eee;
     }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    form button {
+      background: #333;
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <header>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#nosotros">Nosotras</a>
+    <a href="#productos">Productos</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <header id="inicio">
     <img src="logo-sie.png" alt="Sie Pure Care Logo" />
   </header>
 
@@ -82,26 +108,54 @@
     <p>Cuidado hidratante con propósito. Ingredientes puros, resultados visibles. Descubre la armonía natural para tu piel.</p>
   </section>
 
-  <section class="products">
+  <section id="nosotros" class="about">
+    <h2>Sobre Nosotras</h2>
+    <p>En Sie Pure Care creemos en el poder de los ingredientes naturales. Nuestra misión es ofrecerte productos de skincare sin tóxicos, sin disruptores hormonales y con el poder puro de lo orgánico.</p>
+  </section>
+
+  <section id="productos" class="products">
     <div class="product">
       <img src="sana.jpg" alt="Sie Sana" />
       <h2>Sie - Sana</h2>
-      <p>Hidratante reparadora que calma y fortalece la piel sensible. Con extractos naturales que promueven la regeneración.</p>
+      <p>Hidratante reparadora que calma y fortalece la piel sensible.</p>
     </div>
     <div class="product">
       <img src="ilumina.jpg" alt="Sie Ilumina" />
       <h2>Sie - Ilumina</h2>
-      <p>Crema ligera iluminadora que revitaliza la piel apagada, dejando un acabado luminoso y saludable.</p>
+      <p>Crema ligera iluminadora que revitaliza la piel apagada.</p>
     </div>
     <div class="product">
       <img src="equilibra.jpg" alt="Sie Equilibra" />
       <h2>Sie - Equilibra</h2>
-      <p>Fórmula balanceada para hidratar y controlar el exceso de grasa, ideal para piel mixta o con tendencia acneica.</p>
+      <p>Fórmula balanceada ideal para piel mixta o con tendencia acneica.</p>
     </div>
   </section>
 
+  <section id="testimonios" class="testimonials">
+    <h2>Testimonios</h2>
+    <p>"Mi piel nunca se había sentido tan equilibrada. Gracias Sie!" – Andrea</p>
+    <p>"La crema Ilumina realmente hace honor a su nombre. Me encanta." – Laura</p>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2>Preguntas Frecuentes</h2>
+    <p><strong>¿Los productos son naturales?</strong> Sí, todos están formulados con ingredientes naturales y orgánicos.</p>
+    <p><strong>¿Hacen envíos internacionales?</strong> Por ahora solo a nivel nacional, pero pronto ampliaremos.</p>
+  </section>
+
+  <section id="contacto" class="contact">
+    <h2>Contáctanos</h2>
+    <form action="https://formspree.io/f/moqggryn" method="POST">
+      <input type="text" name="nombre" placeholder="Tu nombre" required />
+      <input type="email" name="email" placeholder="Tu correo electrónico" required />
+      <textarea name="mensaje" placeholder="Escribe tu mensaje..." rows="5" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
   <footer>
-    &copy; 2025 Sie Pure Care. Todos los derechos reservados.
+    &copy; 2025 Sie Pure Care. Todos los derechos reservados. | Instagram: @siepurecare
   </footer>
 </body>
 </html>
+
